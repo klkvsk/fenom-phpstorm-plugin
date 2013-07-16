@@ -1,0 +1,42 @@
+<idea-plugin version="2">
+  <id>ru.klkvsk.fenom</id>
+  <name>Fenom template engine</name>
+  <version>1.0</version>
+  <vendor email="m@klkvsk.ru">Mikhail Kulakovskiy</vendor>
+
+  <description><![CDATA[
+      Plugin for highlighting Fenom templates
+      See more at https://github.com/bzick/fenom
+      ]]></description>
+
+  <change-notes><![CDATA[
+      Only highlighting works yet
+      ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+  <depends>com.jetbrains.php</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+      <fileTypeFactory implementation="ru.klkvsk.fenom.file.FenomFileTypeFactory"/>
+      <lang.parserDefinition language="Fenom" implementationClass="ru.klkvsk.fenom.parser.FenomParserDefinition"/>
+      <lang.fileViewProviderFactory language="Fenom" implementationClass="ru.klkvsk.fenom.file.FenomFileViewProviderFactory" />
+      <colorSettingsPage implementation="ru.klkvsk.fenom.editor.FenomColorSettingsPage"/>
+  </extensions>
+
+</idea-plugin>
