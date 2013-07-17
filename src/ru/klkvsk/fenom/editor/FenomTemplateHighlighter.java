@@ -7,10 +7,10 @@ import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.fileTypes.StdFileTypes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import ru.klkvsk.fenom.psi.FenomTokenType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.klkvsk.fenom.psi.FenomTypes;
@@ -32,7 +32,7 @@ public class FenomTemplateHighlighter extends LayeredLexerEditorHighlighter {
             if(language != null) type = language.getAssociatedFileType();
             if(type == null) type = StdFileTypes.HTML;
         }
-        SyntaxHighlighter outerHighlighter = SyntaxHighlighter.PROVIDER.create(type, project, virtualFile);
+        SyntaxHighlighter outerHighlighter = SyntaxHighlighterFactory.getSyntaxHighlighter(type, project, virtualFile);
 
         registerLayer(FenomTypes.TEMPLATE_HTML_TEXT, new LayerDescriptor(outerHighlighter, ""));
     }

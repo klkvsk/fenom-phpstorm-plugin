@@ -9,6 +9,7 @@
     <orderEntry type="jdk" jdkName="IDEA PS-129.814" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="php-openapi" level="project" />
+    <orderEntry type="library" name="php" level="project" />
   </component>
 </module>
 

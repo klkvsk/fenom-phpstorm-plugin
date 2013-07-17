@@ -1,28 +1,18 @@
 package ru.klkvsk.fenom.editor;
 
-import com.intellij.lexer.FlexAdapter;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.HighlighterColors;
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
 import com.jetbrains.php.lang.highlighter.PhpHighlightingData;
-import org.apache.tools.ant.Project;
 import org.jetbrains.annotations.NotNull;
 import ru.klkvsk.fenom.lexer.FenomLexer;
 import ru.klkvsk.fenom.psi.FenomTypes;
 
-import java.awt.*;
-import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
 public class FenomSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final String            BAD_CHARACTER_ID = "Bad character";
@@ -93,7 +83,6 @@ public class FenomSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public TextAttributesKey[] getTokenHighlights(IElementType type) {
-        TextAttributesKey[] x = pack(ATTRIBUTES.get(type));
-        return x;
+        return pack(ATTRIBUTES.get(type));
     }
 }
